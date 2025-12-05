@@ -3,6 +3,8 @@ import numpy as np
 class TicTacToe():
     
     def __init__(self, size):
+        if size <= 0:
+            raise ValueError("the size of the board should be > 1")
         self.size = size
         self.board = np.array([[0 for _ in range(size)] for _ in range(size)])
         self.current_player = 1
@@ -70,5 +72,5 @@ class TicTacToe():
 
 
 if __name__ == "__main__":
-    game = TicTacToe(3)
+    game = TicTacToe(-1)
     game.play_at(0, 0)
