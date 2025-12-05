@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class TicTacToe():
     
     def __init__(self, size):
