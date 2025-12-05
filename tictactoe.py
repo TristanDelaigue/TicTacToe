@@ -18,12 +18,22 @@ class TicTacToe():
     def check_victory(self, i, j):
         
         # vertical check
-        if self.board[:, j] == [self.current_player for _ in range(self.size)]:
+        tmp = True
+        for k in range(self.size):
+            if self.board[k, j] != self.current_player:
+                tmp = False
+                break
+        if tmp:
             self.winner = self.current_player
             return True
         
         # horizontal check
-        if self.board[i, :] == [self.current_player for _ in range(self.size)]:
+        tmp = True
+        for k in range(self.size):
+            if self.board[i, k] != self.current_player:
+                tmp = False
+                break
+        if tmp:
             self.winner = self.current_player
             return True
         
@@ -58,3 +68,8 @@ class TicTacToe():
             self.board[i, j] = self.current_player
             self.check_victory(i, j)
             self.current_player = 3 - self.current_player
+
+
+if __name__ == "__main__":
+    game = TicTacToe(3)
+    game.play_at(0, 0)
